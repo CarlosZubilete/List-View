@@ -12,8 +12,10 @@
   <link href="index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-  <h1>Personal de empresas:</h1>
+  <h1 class="title">Personal de empresas:</h1>
   <form id="form1" runat="server">
+
+    <asp:Label ID="lblShowSelect" runat="server" CssClass="message"></asp:Label>
     <%-- LIST VIEW --%>
     <div class="listview-container">
       <asp:ListView ID="ListView1" runat="server" DataSourceID="sqlData_Empresas" GroupItemCount="3" DataKeyNames="Dni">
@@ -102,6 +104,8 @@
             <br />
             Phone:
             <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
+            <br />
+            <asp:Button ID="btnSelect" runat="server" Text="Seleccionar" CssClass="button" CommandArgument='<%# Eval("Nombre") + " " + Eval("Apellido") %>' CommandName="eventSelect" OnCommand="btnSelect_Command"/>
           </td>
         </ItemTemplate>
         <LayoutTemplate>
@@ -116,7 +120,7 @@
             </tr>
             <tr runat="server">
               <td runat="server" style="" class="datapager">
-                <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                <asp:DataPager ID="DataPager1" runat="server" PageSize="6">
                   <Fields>
                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" ButtonCssClass="button" />
                   </Fields>
@@ -150,9 +154,12 @@
           </td>
         </SelectedItemTemplate>
       </asp:ListView>
+ 
     </div>
+    
     <%-- SQL DATA SOURCE --%>
     <asp:SqlDataSource ID="sqlData_Empresas" runat="server" ConnectionString="<%$ ConnectionStrings:EmpresaConnectionString %>" SelectCommand="SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas]"></asp:SqlDataSource>
+    <br />
   </form>
 </body>
 </html>

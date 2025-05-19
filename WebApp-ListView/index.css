@@ -16,6 +16,24 @@ body {
   align-items: center;
 }
 
+/* Título */
+.title {
+  /*border: 1px solid #ff0000;*/
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+  font-size: 2.5rem;
+  color: #555;
+}
+
+.message {
+  display: block;
+  /*border: 1px solid #ff0000;*/
+  text-align: center;
+  /*margin: 2rem 0 1rem 0;*/
+  font-size: 1rem;
+  font-weight:bold;
+  color: #ff0000;
+}
 /* Contenedor principal del ListView */
 .listview-container {
   display: flex;

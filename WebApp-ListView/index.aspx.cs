@@ -13,5 +13,13 @@ namespace WebApp_ListView
     {
 
     }
+
+    protected void btnSelect_Command(object sender, CommandEventArgs e)
+    {
+      if(e.CommandName == "eventSelect")
+      {
+        lblShowSelect.Text = e.CommandArgument.ToString();
+      }
+    }
   }
 }
