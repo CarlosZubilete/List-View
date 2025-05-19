@@ -9,14 +9,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
   <title>List-View</title>
-  <link href="index.css" type="text/css" rel="stylesheet"/>
+  <link href="index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-  <h1>List View</h1>
+  <h1>Personal de empresas:</h1>
   <form id="form1" runat="server">
-    <div>
-      <%-- LIST VIEW --%>
-      <asp:ListView ID="ListView1" runat="server" DataSourceID="sqlData_MaxiFlixDB" GroupItemCount="3">
+    <%-- LIST VIEW --%>
+    <div class="listview-container">
+      <asp:ListView ID="ListView1" runat="server" DataSourceID="sqlData_Empresas" GroupItemCount="3" DataKeyNames="Dni">
+        <EditItemTemplate>
+          <td runat="server" style="">DNI:
+            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
+            <br />
+            FullName:
+            <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
+            <asp:Label ID="ApellidoLabel" runat="server" Text='<%# Eval("Apellido") %>' />
+            <br />
+            <asp:ImageButton ID="imgBtn" runat="server"
+              class="actor-photo" ImageUrl='<%# Eval("ImagenURL") %>' />
+            <br />
+            Age:
+            <asp:Label ID="EdadLabel" runat="server" Text='<%# Eval("Edad") %>' />
+            <br />
+            Sexo:
+            <asp:Label ID="SexoLabel" runat="server" Text='<%# Eval("Sexo") %>' />
+            <br />
+            Address:
+            <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
+            <br />
+            Phone:
+            <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
+          </td>
+        </EditItemTemplate>
         <EmptyDataTemplate>
           <table runat="server" style="">
             <tr>
@@ -32,23 +56,52 @@
             <td id="itemPlaceholder" runat="server"></td>
           </tr>
         </GroupTemplate>
-        <ItemTemplate>
-          <td runat="server" style="">Actor:
+        <InsertItemTemplate>
+          <td runat="server" style="">DNI:
+            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
+            <br />
+            FullName:
             <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
             <asp:Label ID="ApellidoLabel" runat="server" Text='<%# Eval("Apellido") %>' />
             <br />
-            IdNacionalidad:
-            <asp:Label ID="IdNacionalidadLabel" runat="server" Text='<%# Eval("IdNacionalidad") %>' />
+            <asp:ImageButton ID="imgBtn" runat="server"
+              class="actor-photo" ImageUrl='<%# Eval("ImagenURL") %>' />
             <br />
-            FechaNacimiento:
-            <asp:Label ID="FechaNacimientoLabel" runat="server" Text='<%# Eval("FechaNacimiento") %>' />
+            Age:
+            <asp:Label ID="EdadLabel" runat="server" Text='<%# Eval("Edad") %>' />
             <br />
-            Imagen:
-            <asp:Image ID="ImagenActor" runat="server"
-              class="actor-photo"
-              src='<%# Eval("ImagenUrl") %>'
-              alt='<%# Eval("Nombre") + " " + Eval("Apellido") %>' />
+            Sexo:
+            <asp:Label ID="SexoLabel" runat="server" Text='<%# Eval("Sexo") %>' />
             <br />
+            Address:
+            <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
+            <br />
+            Phone:
+            <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
+          </td>
+        </InsertItemTemplate>
+        <ItemTemplate>
+          <td runat="server" style="" class="employee-card">DNI:
+            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
+            <br />
+            FullName:
+            <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
+            <asp:Label ID="ApellidoLabel" runat="server" Text='<%# Eval("Apellido") %>' />
+            <br />
+            <asp:ImageButton ID="imgBtn" runat="server"
+              class="actor-photo" ImageUrl='<%# Eval("ImagenURL") %>' />
+            <br />
+            Age:
+            <asp:Label ID="EdadLabel" runat="server" Text='<%# Eval("Edad") %>' />
+            <br />
+            Sexo:
+            <asp:Label ID="SexoLabel" runat="server" Text='<%# Eval("Sexo") %>' />
+            <br />
+            Address:
+            <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
+            <br />
+            Phone:
+            <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
           </td>
         </ItemTemplate>
         <LayoutTemplate>
@@ -62,14 +115,53 @@
               </td>
             </tr>
             <tr runat="server">
-              <td runat="server" style=""></td>
+              <td runat="server" style="" class="datapager">
+                <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                  <Fields>
+                    <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" ButtonCssClass="button" />
+                  </Fields>
+                </asp:DataPager>
+              </td>
             </tr>
           </table>
         </LayoutTemplate>
+        <SelectedItemTemplate>
+          <td runat="server" style="">DNI:
+            <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
+            <br />
+            FullName:
+            <asp:Label ID="NombreLabel" runat="server" Text='<%# Eval("Nombre") %>' />
+            <asp:Label ID="ApellidoLabel" runat="server" Text='<%# Eval("Apellido") %>' />
+            <br />
+            <asp:ImageButton ID="imgBtn" runat="server"
+              class="actor-photo" ImageUrl='<%# Eval("ImagenURL") %>' />
+            <br />
+            Age:
+            <asp:Label ID="EdadLabel" runat="server" Text='<%# Eval("Edad") %>' />
+            <br />
+            Sexo:
+            <asp:Label ID="SexoLabel" runat="server" Text='<%# Eval("Sexo") %>' />
+            <br />
+            Address:
+            <asp:Label ID="DireccionLabel" runat="server" Text='<%# Eval("Direccion") %>' />
+            <br />
+            Phone:
+            <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
+          </td>
+        </SelectedItemTemplate>
       </asp:ListView>
-      <%-- SQL DATA SOURCE --%>
-      <asp:SqlDataSource ID="sqlData_MaxiFlixDB" runat="server" ConnectionString="<%$ ConnectionStrings:MaxiFlix_DBConnectionString %>" SelectCommand="SELECT [Nombre], [Apellido], [IdNacionalidad], [FechaNacimiento], [ImagenUrl] FROM [Reparto]"></asp:SqlDataSource>
     </div>
+    <%-- SQL DATA SOURCE --%>
+    <asp:SqlDataSource ID="sqlData_Empresas" runat="server" ConnectionString="<%$ ConnectionStrings:EmpresaConnectionString %>" SelectCommand="SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas]"></asp:SqlDataSource>
   </form>
 </body>
 </html>
+
+
+<%-- 
+  <asp:SqlDataSource ID="sqlData_MaxiFlixDB"
+    runat="server" ConnectionString="<%$ ConnectionStrings:MaxiFlix_DBConnectionString %>"
+    SelectCommand="SELECT Re.[Nombre] , Re.[Apellido], Pa.[Nombre] as 'Nacionalidad', Re.[FechaNacimiento], Re.[ImagenUrl]
+    FROM [Reparto] Re JOIN [Paises] Pa ON Pa.Id = Re.IdNacionalidad">
+  </asp:SqlDataSource>  
+--%>

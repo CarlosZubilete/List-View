@@ -33,12 +33,12 @@ namespace WebApp_ListView
     protected global::System.Web.UI.WebControls.ListView ListView1;
 
     /// <summary>
-    /// sqlData_MaxiFlixDB control.
+    /// sqlData_Empresas control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.SqlDataSource sqlData_MaxiFlixDB;
+    protected global::System.Web.UI.WebControls.SqlDataSource sqlData_Empresas;
   }
 }
