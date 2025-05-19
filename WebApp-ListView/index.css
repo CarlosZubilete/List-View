@@ -1,0 +1,56 @@
+﻿body {
+}
+/* ListViewStyles.css */
+
+/* Contenedor general */
+.actor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff8f2; /* muy claro para contraste */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 1rem;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover */
+.actor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Imagen */
+.actor-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #e27d60; /* terracota suave */
+}
+
+/* Información */
+.actor-info {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+.actor-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #d35400; /* naranja intenso */
+}
+
+.actor-info p {
+  margin: 0.3rem 0 0;
+  color: #7f8c8d; /* gris medio */
+}
+
+/* Responsive: 3 columnas en desktop, 1 en móvil */
+.listview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
