@@ -4,14 +4,34 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+// Added to connectig SQL
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WebApp_ListView
 {
   public partial class index : System.Web.UI.Page
   {
+    private string _query = "SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas]";
+    private const string _connectionString = @"Data Source=DESKTOP-LFTFVP5\SQLEXPRESS;Initial Catalog=Empresa;Integrated Security=True"; 
     protected void Page_Load(object sender, EventArgs e)
     {
+      // 
+      if (!IsPostBack)
+      {
+        SqlConnection connection = new SqlConnection(_connectionString);
+        connection.Open();
 
+        SqlDataAdapter adapter = new SqlDataAdapter(_query, connection);
+        
+        DataSet data = new DataSet();
+        adapter.Fill(data, "Personas");
+
+        listViewCompany.DataSource = data.Tables["Personas"];
+        listViewCompany.DataBind();
+
+        connection.Close();
+      }
     }
 
     protected void btnSelect_Command(object sender, CommandEventArgs e)
@@ -44,12 +64,14 @@ namespace WebApp_ListView
         }
 
       }
-      // TODO: agregar un clase connection and un button para ordenar by name.
     }
 
     protected void btnOreder_Click(object sender, EventArgs e)
     {
-      sqlData_Empresas.SelectCommand = "SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas] ORDER BY [Nombre]";
+      //sqlData_Empresas.SelectCommand = "SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas] ORDER BY [Nombre]";
     }
   }
 }
+
+
+// TODO : ADDED A CLASS CONNECTION AND FUNCTION TO ORDER BY NAME.

@@ -22,7 +22,7 @@
     <asp:Label ID="lblShowSelect" runat="server" CssClass="message"></asp:Label>
     <%-- LIST VIEW --%>
     <div class="listview-container">
-      <asp:ListView ID="listViewCompany" runat="server" DataSourceID="sqlData_Empresas" GroupItemCount="3" DataKeyNames="Dni">
+      <asp:ListView ID="listViewCompany" runat="server" GroupItemCount="3" DataKeyNames="Dni">
         <EditItemTemplate>
           <td runat="server" style="">DNI:
             <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
@@ -165,7 +165,7 @@
     <br />
     <asp:Label Text="" runat="server" ID="lblShowSelectedPeople"/>
     <%-- SQL DATA SOURCE --%>
-    <asp:SqlDataSource ID="sqlData_Empresas" runat="server" ConnectionString="<%$ ConnectionStrings:EmpresaConnectionString %>" SelectCommand="SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas]"></asp:SqlDataSource>
+    <%--<asp:SqlDataSource ID="sqlData_Empresas" runat="server" ConnectionString="<%$ ConnectionStrings:EmpresaConnectionString %>" SelectCommand="SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas]"></asp:SqlDataSource>--%>
     <br />
   </form>
 </body>
