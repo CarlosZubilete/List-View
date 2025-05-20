@@ -11,7 +11,7 @@ namespace WebApp_ListView
 {
 
 
-  public partial class index
+  public partial class dataList
   {
 
     /// <summary>
@@ -33,48 +33,30 @@ namespace WebApp_ListView
     protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
     /// <summary>
-    /// btnOreder control.
+    /// DataList1 control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnOreder;
+    protected global::System.Web.UI.WebControls.DataList DataList1;
 
     /// <summary>
-    /// lblShowSelect control.
+    /// lbLShowName control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblShowSelect;
+    protected global::System.Web.UI.WebControls.Label lbLShowName;
 
     /// <summary>
-    /// listViewCompany control.
+    /// sqlData_Empresas control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ListView listViewCompany;
-
-    /// <summary>
-    /// Button1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button1;
-
-    /// <summary>
-    /// lblShowSelectedPeople control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblShowSelectedPeople;
+    protected global::System.Web.UI.WebControls.SqlDataSource sqlData_Empresas;
   }
 }

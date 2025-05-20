@@ -12,6 +12,7 @@
   <link href="index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+  <asp:HyperLink ID="link" runat="server" NavigateUrl="~/dataList.aspx">DataList</asp:HyperLink>
   <h1 class="title">Personal de empresas:</h1>
   <form id="form1" runat="server">
     <%-- Ordenar por nombre --%>

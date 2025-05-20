@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dataList.aspx" />
     <Content Include="Imagenes\1.jpg" />
     <Content Include="Imagenes\10.jpg" />
     <Content Include="Imagenes\11.jpg" />
@@ -88,6 +89,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dataList.aspx.cs">
+      <DependentUpon>dataList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dataList.aspx.designer.cs">
+      <DependentUpon>dataList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
