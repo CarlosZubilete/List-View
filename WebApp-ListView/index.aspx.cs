@@ -16,7 +16,7 @@ namespace WebApp_ListView
 
     protected void btnSelect_Command(object sender, CommandEventArgs e)
     {
-      if(e.CommandName == "eventSelect")
+      if (e.CommandName == "eventSelect")
       {
         lblShowSelect.Text = e.CommandArgument.ToString();
       }
@@ -26,7 +26,7 @@ namespace WebApp_ListView
     {
       string name;
       string surname;
-    
+
       lblShowSelectedPeople.Text = string.Empty;
 
       // We go through the elements
@@ -40,10 +40,16 @@ namespace WebApp_ListView
           name = ((Label)item.FindControl("NombreLabel")).Text;
           surname = ((Label)item.FindControl("ApellidoLabel")).Text;
 
-          lblShowSelectedPeople.Text += name + " " + surname + "<br>"; 
+          lblShowSelectedPeople.Text += name + " " + surname + "<br>";
         }
-        
+
       }
+      // TODO: agregar un clase connection and un button para ordenar by name.
+    }
+
+    protected void btnOreder_Click(object sender, EventArgs e)
+    {
+      sqlData_Empresas.SelectCommand = "SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas] ORDER BY [Nombre]";
     }
   }
 }

@@ -14,6 +14,10 @@
 <body>
   <h1 class="title">Personal de empresas:</h1>
   <form id="form1" runat="server">
+    <%-- Ordenar por nombre --%>
+    <asp:Button 
+      ID="btnOreder" 
+      runat="server" Text="Order by Name" CssClass="button" OnClick="btnOreder_Click"/>
 
     <asp:Label ID="lblShowSelect" runat="server" CssClass="message"></asp:Label>
     <%-- LIST VIEW --%>
