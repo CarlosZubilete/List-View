@@ -21,5 +21,29 @@ namespace WebApp_ListView
         lblShowSelect.Text = e.CommandArgument.ToString();
       }
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+      string name;
+      string surname;
+    
+      lblShowSelectedPeople.Text = string.Empty;
+
+      // We go through the elements
+      foreach (ListViewItem item in listViewCompany.Items)
+      {
+        // For each item, I look for the CheckBox through a control.
+        CheckBox checkBox = (CheckBox)(item.FindControl("checkBoxPersona"));
+
+        if (checkBox.Checked)
+        {
+          name = ((Label)item.FindControl("NombreLabel")).Text;
+          surname = ((Label)item.FindControl("ApellidoLabel")).Text;
+
+          lblShowSelectedPeople.Text += name + " " + surname + "<br>"; 
+        }
+        
+      }
+    }
   }
 }

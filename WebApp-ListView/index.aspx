@@ -18,7 +18,7 @@
     <asp:Label ID="lblShowSelect" runat="server" CssClass="message"></asp:Label>
     <%-- LIST VIEW --%>
     <div class="listview-container">
-      <asp:ListView ID="ListView1" runat="server" DataSourceID="sqlData_Empresas" GroupItemCount="3" DataKeyNames="Dni">
+      <asp:ListView ID="listViewCompany" runat="server" DataSourceID="sqlData_Empresas" GroupItemCount="3" DataKeyNames="Dni">
         <EditItemTemplate>
           <td runat="server" style="">DNI:
             <asp:Label ID="DniLabel" runat="server" Text='<%# Eval("Dni") %>' />
@@ -105,7 +105,9 @@
             Phone:
             <asp:Label ID="TelefonoLabel" runat="server" Text='<%# Eval("Telefono") %>' />
             <br />
-            <asp:Button ID="btnSelect" runat="server" Text="Seleccionar" CssClass="button" CommandArgument='<%# Eval("Nombre") + " " + Eval("Apellido") %>' CommandName="eventSelect" OnCommand="btnSelect_Command"/>
+            <asp:Button ID="btnSelect" runat="server" Text="Select" CssClass="button" CommandArgument='<%# Eval("Nombre") + " " + Eval("Apellido") %>' CommandName="eventSelect" OnCommand="btnSelect_Command"/>
+            <br />
+            <asp:CheckBox ID="checkBoxPersona" runat="server" />
           </td>
         </ItemTemplate>
         <LayoutTemplate>
@@ -154,9 +156,10 @@
           </td>
         </SelectedItemTemplate>
       </asp:ListView>
- 
     </div>
-    
+    <asp:Button ID="Button1" runat="server" Text="ShowSelected" CssClass="button" OnClick="Button1_Click"/>
+    <br />
+    <asp:Label Text="" runat="server" ID="lblShowSelectedPeople"/>
     <%-- SQL DATA SOURCE --%>
     <asp:SqlDataSource ID="sqlData_Empresas" runat="server" ConnectionString="<%$ ConnectionStrings:EmpresaConnectionString %>" SelectCommand="SELECT [Dni], [Nombre], [Apellido], [Edad], [Sexo], [ImagenURL], [Direccion], [Telefono] FROM [Personas]"></asp:SqlDataSource>
     <br />

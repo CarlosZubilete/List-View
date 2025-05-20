@@ -33,13 +33,31 @@ namespace WebApp_ListView
     protected global::System.Web.UI.WebControls.Label lblShowSelect;
 
     /// <summary>
-    /// ListView1 control.
+    /// listViewCompany control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ListView ListView1;
+    protected global::System.Web.UI.WebControls.ListView listViewCompany;
+
+    /// <summary>
+    /// Button1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button1;
+
+    /// <summary>
+    /// lblShowSelectedPeople control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblShowSelectedPeople;
 
     /// <summary>
     /// sqlData_Empresas control.
